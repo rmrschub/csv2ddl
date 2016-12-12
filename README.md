@@ -4,11 +4,11 @@ A bash script for dealing with tabular data in several formats, guessing types a
 
 You can use csv2ddl like this
 ```{r, engine='bash', count_lines}
-./csv2ddl example.csv ExampleTable
+./csv2ddl horror/test.csv LegoColorMap
 ```
 in order to create DDL statements like
 ```sql
-CREATE TABLE ColorMap (
+CREATE TABLE LegoColorMap (
   hex_code TEXT NOT NULL PRIMARY KEY,
   Brick_Owl TEXT,
   Lego_Name TEXT,
