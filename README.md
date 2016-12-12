@@ -16,7 +16,7 @@ CREATE TABLE ColorMap (
 ```
 
 from stuff like that
-```
+
 |          |              |                    |      |       |         |              | 
 |----------|--------------|--------------------|------|-------|---------|--------------| 
 | hex code | Brick Owl    | Lego Name          | Lego | LDraw | Peeron  | BL           | 
@@ -27,7 +27,7 @@ from stuff like that
 | 0057a6   | Blue         | BR.BLUE            | 23   | 1     | Blue    | Blue         | 
 | 0057a6   | Blue         | BRIGHT BLUE        | 23   | 1     | Blue    | Blue         | 
 | 10cb31   | Bright Green | BR.GREEN           | 37   | 10    | BtGreen | Bright Green | 
-```
+
 
 
 ## Installation
