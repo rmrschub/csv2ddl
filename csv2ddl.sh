@@ -224,14 +224,14 @@ function guessColumnType () {
 #   $_arg_headerline
 #   $_arg_pkcolumn
 # Returns:
-#   DDL _arg_fileuri
+#   DDL to stdout
 #######################################
-function writeDDL () {
+function generateDDL () {
   HEADERS=`sed "${4}q;d" $1 | tr -d '\n'`
   IFS=$2 read -a array <<< "$HEADERS"
   LAST_COL=${array[$[${#array[@]}-1]]}
   
-  echo 'CREATE TABLE '$3' (' > $3.ddl
+  echo 'CREATE TABLE '$3' (' > $DDL
   COUNTER=1
   for element in "${array[@]}"
   do
@@ -239,33 +239,35 @@ function writeDDL () {
     
     if [ "$element" != "$LAST_COL" ]; then
       if [ "$COUNTER" = "$5" ]; then
-        echo "  ${element// /_} ${COLUMN_TYPE} NOT NULL PRIMARY KEY," >> $3.ddl
+        echo "  ${element// /_} ${COLUMN_TYPE} NOT NULL PRIMARY KEY," >> $DDL
       else
-        echo "  ${element// /_} ${COLUMN_TYPE}," >> $3.ddl
+        echo "  ${element// /_} ${COLUMN_TYPE}," >> $DDL
       fi
     else
       if [ "$COUNTER" = "$5" ]; then
-        echo "  ${element// /_} ${COLUMN_TYPE} NOT NULL PRIMARY KEY" >> $3.ddl
+        echo "  ${element// /_} ${COLUMN_TYPE} NOT NULL PRIMARY KEY" >> $DDL
       else
-        echo "  ${element// /_} ${COLUMN_TYPE}" >> $3.ddl
+        echo "  ${element// /_} ${COLUMN_TYPE}" >> $DDL
       fi
     fi
     let COUNTER=COUNTER+1
   done
-  echo ")" >> $3.ddl
+  echo ")" >> $DDL
 }
 
 
 TMP=`mktemp`
 SAMPLE_ROWS=`mktemp`
+DDL=`mktemp`
 
 lineTerminatorCleanup $_arg_fileuri > $TMP
 getSampleRows $TMP > $SAMPLE_ROWS
-writeDDL $TMP $_arg_delimiter $_arg_tablename $_arg_headerline $_arg_pkcolumn
-
+generateDDL $TMP $_arg_delimiter $_arg_tablename $_arg_headerline $_arg_pkcolumn
+cat $DDL
 
 # cleanup
 rm $TMP
 rm $SAMPLE_ROWS
+rm $DDL
 
 # ] <-- needed because of Argbash
