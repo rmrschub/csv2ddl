@@ -19,7 +19,6 @@ from stuff like that
 
 |----------|--------------|--------------------|------|-------|---------|--------------| 
 | hex code | Brick Owl    | Lego Name          | Lego | LDraw | Peeron  | BL           | 
-|----------|--------------|--------------------|------|-------|---------|--------------|
 | b5d3d6   | Aqua         | LIGHT BLUISH GREEN | 118  | 118   | Aqua    | Aqua         | 
 | 0057a6   | Blue         | BR. BLUE           | 23   | 1     | Blue    | Blue         | 
 | 0057a6   | Blue         | BR.BLUE            | 23   | 1     | Blue    | Blue         | 
