@@ -7,6 +7,7 @@ Make sure to use Bash 4.+!
 
 ## Usage
 ```{r, engine='bash', count_lines}
+chmod +x csv2ddl.sh
 ./csv2ddl.sh [INPUT_FILE] [TABLE_NAME] [HEADER_LINE] [PK_COLUMN] [DELIMITER] > [OUTPUT_FILE]
 ```
 
