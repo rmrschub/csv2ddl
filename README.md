@@ -2,6 +2,34 @@
 
 A bash script for dealing with tabular data in several formats, guessing types and detecting headers.
 
+csv2ddl creates DDL statements like this
+```sql
+CREATE TABLE ColorMap (
+  hex_code TEXT NOT NULL PRIMARY KEY,
+  Brick_Owl TEXT,
+  Lego_Name TEXT,
+  Lego INTEGER,
+  LDraw INTEGER,
+  Peeron TEXT,
+  BL TEXT
+)
+```
+
+from stuff like that
+```
+|          |              |                    |      |       |         |              | 
+|----------|--------------|--------------------|------|-------|---------|--------------| 
+| hex code | Brick Owl    | Lego Name          | Lego | LDraw | Peeron  | BL           | 
+| b5d3d6   | Aqua         | LIGHT BLUISH GREEN | 118  | 118   | Aqua    | Aqua         | 
+| 212121   | Black        | BLACK              | 26   | true  | Black   | Black        | 
+| 212121   | Black        | CONDUCT. BLACK     |      | false | Black   | Black        | 
+| 0057a6   | Blue         | BR. BLUE           | 23   | 1     | Blue    | Blue         | 
+| 0057a6   | Blue         | BR.BLUE            | 23   | 1     | Blue    | Blue         | 
+| 0057a6   | Blue         | BRIGHT BLUE        | 23   | 1     | Blue    | Blue         | 
+| 10cb31   | Bright Green | BR.GREEN           | 37   | 10    | BtGreen | Bright Green | 
+```
+
+
 ## Installation
 Make sure to use Bash 4.+!
 
