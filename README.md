@@ -2,7 +2,11 @@
 
 A bash script for dealing with tabular data in several formats, guessing types and detecting headers.
 
-csv2ddl creates DDL statements like this
+You can use csv2ddl like this
+```{r, engine='bash', count_lines}
+./csv2ddl example.csv ExampleTable
+```
+in order to create DDL statements like
 ```sql
 CREATE TABLE ColorMap (
   hex_code TEXT NOT NULL PRIMARY KEY,
@@ -14,8 +18,7 @@ CREATE TABLE ColorMap (
   BL TEXT
 )
 ```
-
-from stuff like that
+from tabular data like
 
 | hex code | Brick Owl    | Lego Name          | Lego | LDraw | Peeron  | BL           | 
 |----------|--------------|--------------------|------|-------|---------|--------------| 
@@ -30,7 +33,7 @@ Make sure to use Bash 4.+!
 
 ```{r, engine='bash', count_lines}
 chmod +x csv2ddl.sh
-./csv2ddl.sh [INPUT_FILE] [TABLE_NAME] [HEADER_LINE] [PK_COLUMN] [DELIMITER] > [OUTPUT_FILE]
+./csv2ddl.sh --help
 ```
 
 ## Contributions
