@@ -1,12 +1,7 @@
 # csv2ddl
+csv2ddl is a REST API for generating SQL DDL statements from tabular data in several delimiter-spearated value formats.
 
-A bash script for dealing with tabular data in several formats, guessing types and detecting headers.
-
-You can use csv2ddl like this
-```{r, engine='bash', count_lines}
-./csv2ddl horror/test.csv LegoColorMap
-```
-in order to create DDL statements like
+You can use csv2ddl in order to create DDL statements like
 ```sql
 CREATE TABLE LegoColorMap (
   hex_code TEXT NOT NULL PRIMARY KEY,
@@ -28,15 +23,7 @@ from tabular data like
 | 0057a6   | Blue         | BRIGHT BLUE        | 23   | 1     | Blue    | Blue         | 
 | 10cb31   | Bright Green | BR.GREEN           | 37   | 10    | BtGreen | Bright Green | 
 
-
-## Installation
- Build Docker container and run csv2ddl 
-```{r, engine='bash', count_lines}
-docker build -t csv2ddl .
-docker run -ti --rm -p 8080:8080 csv2ddl
-````
-
-## Usage
+# Usage
 Get csv2ddl up and running. HTTP GET requests can be made against csv2ddl's form-style GET API as follows
 ```
 GET csv2ddl?fileUri={uri}&tableName={name}&delimiter={delim} HTTP/1.1
@@ -61,6 +48,14 @@ CREATE TABLE ColorMap (
   BL TEXT
 )
 ```
+
+
+## Docker Setup
+ Build Docker container and run csv2ddl 
+```{r, engine='bash', count_lines}
+docker build -t csv2ddl .
+docker run -ti --rm -p 8080:8080 csv2ddl
+````
 
 ## Contributions
 Contributions are very welcome.
