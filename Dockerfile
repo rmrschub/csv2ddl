@@ -11,4 +11,4 @@ CMD ["-port=8080", \
      "-show-errors", \
      "-form", \
      "/csv2ddl", \
-     "csv2ddl ${v_fileURI} ${v_tableName} ${v_delimiter}" ]
+     "csv2ddl ${v_fileURI} ${v_tableName} ${v_delimiter}"]
