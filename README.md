@@ -1,5 +1,7 @@
 # csv2ddl
-csv2ddl is a collection of REST services for generating Data Definition Language (DDL) statements as well as Data Manipulation Language (DML) statements from tabular data in several delimiter-separated values (DSV) file formats. Formats that use delimiter-separated values (also DSV) store two-dimensional arrays of data by separating the values in each row with specific delimiter characters. 
+csv2ddl is a collection of REST services for generating Data Definition Language (DDL) statements as well as Data Manipulation Language (DML) statements from tabular data in several delimiter-separated values (DSV) file formats. 
+
+Delimiter-separated values (DSV) file formats store two-dimensional arrays of data by separating the values in each row with specific delimiter characters. 
 
 csv2ddl currently supports the following DSV file formats:
 * comma-separated values (CSV)
