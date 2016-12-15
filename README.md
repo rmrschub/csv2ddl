@@ -1,5 +1,11 @@
 # csv2ddl
-csv2ddl is a REST API for generating SQL DDL statements from tabular data in several delimiter-spearated value formats.
+csv2ddl is a collection of REST services for generating Data Definition Language (DDL) statements as well as Data Manipulation Language (DML) statements from tabular data in several delimiter-separated values (DSV) file formats. Formats that use delimiter-separated values (also DSV) store two-dimensional arrays of data by separating the values in each row with specific delimiter characters. 
+
+csv2ddl currently supports the following DSV file formats:
+* comma-separated values (CSV)
+* semicolon-separated values (SSV)
+* tab-separated values (TSV)
+* pipe-separated values (PSV)
 
 You can use csv2ddl in order to create DDL statements like
 ```sql
@@ -23,6 +29,27 @@ from tabular data like
 | 0057a6   | Blue         | BRIGHT BLUE        | 23   | 1     | Blue    | Blue         | 
 | 10cb31   | Bright Green | BR.GREEN           | 37   | 10    | BtGreen | Bright Green | 
 
+You can also use csv2ddl in order to create DML statements like
+```sql
+INSERT INTO ColorMap ( hex_code, Brick_Owl, Lego_Name, Lego, LDraw, Peeron, BL ) VALUES ( 'b5d3d6','Aqua','LIGHT BLUISH GREEN','118','118','Aqua','Aqua' );
+INSERT INTO ColorMap ( hex_code, Brick_Owl, Lego_Name, Lego, LDraw, Peeron, BL ) VALUES ( '0057a6','Blue','BR. BLUE','23','1','Blue','Blue' );
+INSERT INTO ColorMap ( hex_code, Brick_Owl, Lego_Name, Lego, LDraw, Peeron, BL ) VALUES ( '0057a6','Blue','BR.BLUE','23','1','Blue','Blue' );
+INSERT INTO ColorMap ( hex_code, Brick_Owl, Lego_Name, Lego, LDraw, Peeron, BL ) VALUES ( '0057a6','Blue','BRIGHT BLUE','23','1','Blue','Blue' );
+INSERT INTO ColorMap ( hex_code, Brick_Owl, Lego_Name, Lego, LDraw, Peeron, BL ) VALUES ( '10cb31','Bright Green','BR.GREEN','37','10','BtGreen','Bright Green' );
+```
+from tabular data like
+
+| hex code | Brick Owl    | Lego Name          | Lego | LDraw | Peeron  | BL           | 
+|----------|--------------|--------------------|------|-------|---------|--------------| 
+| b5d3d6   | Aqua         | LIGHT BLUISH GREEN | 118  | 118   | Aqua    | Aqua         | 
+| 0057a6   | Blue         | BR. BLUE           | 23   | 1     | Blue    | Blue         | 
+| 0057a6   | Blue         | BR.BLUE            | 23   | 1     | Blue    | Blue         | 
+| 0057a6   | Blue         | BRIGHT BLUE        | 23   | 1     | Blue    | Blue         | 
+| 10cb31   | Bright Green | BR.GREEN           | 37   | 10    | BtGreen | Bright Green | 
+
+
+
+
 # Usage
 Get csv2ddl up and running. HTTP GET requests can be made against csv2ddl's form-style GET API as follows
 ```
@@ -35,6 +62,7 @@ Need some examples? The following request
 ```
 GET csv2ddl?fileURI=https://raw.githubusercontent.com/rmrschub/csv2ddl/master/horror/test.csv&tableName=ColorMap&delimiter=; HTTP/1.1
 Server: http://HOST:8080
+
 ```
 will give you the following SQL DDL
 ```sql
