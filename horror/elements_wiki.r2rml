@@ -1,0 +1,26 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ex: <http://example.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@base <http://chemistry.org/base/> .
+
+<TriplesMap1>
+    a rr:TriplesMap;
+        
+    rr:logicalTable [ rr:tableName "\"elements\""; ] ;
+	
+    rr:subjectMap [ rr:template "http://chemistry.org/periodicTable/{\"AtomicNumber\"}" ]; 
+	
+    rr:predicateObjectMap
+    [ 
+      rr:predicate		dct:title ; 
+      rr:objectMap		[ rr:column "\"StandardName\"" ]
+    ] ,
+    [
+      rr:predicate		owl:sameAs ; 
+      rr:objectMap		[ rr:template "https://en.wikipedia.org/wiki/{\"StandardName\"}" ]
+    ]
+    .
