@@ -4,6 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix gc: <http://purl.org/gc/> .
 
 @base <http://chemistry.org/base/> .
 
@@ -12,7 +13,12 @@
         
     rr:logicalTable [ rr:tableName "\"elements\""; ] ;
 	
-    rr:subjectMap [ rr:template "http://chemistry.org/periodicTable/{\"AtomicNumber\"}" ]; 
+    rr:subjectMap 
+    [ 
+      rr:template "http://chemistry.org/periodicTable/{\"AtomicNumber\"}" ;
+      rr:class gc:Atom ;
+      
+    ]; 
 	
     rr:predicateObjectMap
     [ 
